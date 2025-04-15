@@ -5,7 +5,7 @@ public abstract class SupportHandler {
 
     public SupportHandler setNext(SupportHandler handler) {
         this.next = handler;
-        return handler; // позволяет цепочку строить через .setNext().setNext()
+        return handler;
     }
 
     public abstract void handle(String issue);

@@ -31,6 +31,6 @@ public class Main {
         remote.pressButton("light");
         remote.pressButton("thermostat");
 
-        remote.undoButton(); // undo thermostat
+        remote.undoButton();
     }
 }
