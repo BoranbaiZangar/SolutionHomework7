@@ -11,11 +11,15 @@ public class TurnOffLightCommand implements Command {
 
     @Override
     public void execute() {
-        light.turnOff();
+        if (light.isOn()) {
+            light.turnOff();
+        } else {
+            System.out.println("[Command] Light is already OFF");
+        }
     }
 
     @Override
     public void undo() {
-        light.turnOn(); // откатываем выключение — включаем снова
+        light.turnOn();
     }
 }
