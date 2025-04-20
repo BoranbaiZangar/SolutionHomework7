@@ -3,23 +3,29 @@ package CommandPattern.Commands;
 import CommandPattern.devices.Thermostat;
 
 public class SetThermostatCommand implements Command {
-    private Thermostat thermostat;
-    private int newTemp;
+    private final Thermostat thermostat;
+    private final int newTemp;
     private int prevTemp;
 
     public SetThermostatCommand(Thermostat thermostat, int temp) {
         this.thermostat = thermostat;
         this.newTemp = temp;
-        this.prevTemp = thermostat.getTemperature();
     }
 
     @Override
     public void execute() {
-        thermostat.setTemperature(newTemp);
+        prevTemp = thermostat.getTemperature();
+        if (prevTemp != newTemp) {
+            System.out.println("[Command] Setting temperature to " + newTemp + "°C");
+            thermostat.setTemperature(newTemp);
+        } else {
+            System.out.println("[Command] Temperature already set to " + newTemp + "°C");
+        }
     }
 
     @Override
     public void undo() {
+        System.out.println("[Command] Reverting to previous temperature: " + prevTemp + "°C");
         thermostat.setTemperature(prevTemp);
     }
 }
