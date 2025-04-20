@@ -1,4 +1,6 @@
-package CommandPattern;
+package CommandPattern.invoker;
+
+import CommandPattern.Commands.Command;
 
 import java.util.HashMap;
 import java.util.Map;

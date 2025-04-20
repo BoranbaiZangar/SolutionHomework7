@@ -1,12 +1,16 @@
 package ChainResponsibility;
 
+import java.util.Set;
+
 public class SeniorSupportHandler extends SupportHandler {
+    private static final Set<String> SUPPORTED_ISSUES = Set.of("account_ban", "data_loss");
+
     @Override
     public void handle(String issue) {
-        if ("account_ban".equals(issue) || "data_loss".equals(issue)) {
-            System.out.println("[SeniorSupport] Handled " + issue);
+        if (SUPPORTED_ISSUES.contains(issue)) {
+            System.out.println("[" + getClass().getSimpleName() + "] Handled: " + issue);
         } else {
-            System.out.println("[SeniorSupport] Cannot handle " + issue + " — escalate manually");
+            System.out.println("[" + getClass().getSimpleName() + "] Cannot handle '" + issue + "' — requires manual escalation.");
         }
     }
 }

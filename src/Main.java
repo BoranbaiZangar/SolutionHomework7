@@ -1,5 +1,10 @@
 import ChainResponsibility.*;
-import CommandPattern.*;
+import CommandPattern.Commands.Command;
+import CommandPattern.Commands.SetThermostatCommand;
+import CommandPattern.Commands.TurnOnLightCommand;
+import CommandPattern.devices.Light;
+import CommandPattern.devices.Thermostat;
+import CommandPattern.invoker.SmartHomeRemoteControl;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,6 @@
-package CommandPattern;
+package CommandPattern.Commands;
+
+import CommandPattern.devices.Light;
 
 public class TurnOnLightCommand implements Command {
     private Light light;

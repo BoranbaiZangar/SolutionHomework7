@@ -1,4 +1,6 @@
-package CommandPattern;
+package CommandPattern.Commands;
+
+import CommandPattern.devices.Thermostat;
 
 public class SetThermostatCommand implements Command {
     private Thermostat thermostat;

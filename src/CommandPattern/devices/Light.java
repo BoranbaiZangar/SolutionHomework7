@@ -1,4 +1,4 @@
-package CommandPattern;
+package CommandPattern.devices;
 
 public class Light {
     public void turnOn() {

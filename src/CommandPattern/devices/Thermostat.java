@@ -1,4 +1,4 @@
-package CommandPattern;
+package CommandPattern.devices;
 
 public class Thermostat {
     private int temperature = 20;

@@ -1,15 +1,19 @@
 package ChainResponsibility;
 
+import java.util.Set;
+
 public class FAQBotHandler extends SupportHandler {
+    private static final Set<String> SUPPORTED_ISSUES = Set.of("password_reset");
+
     @Override
     public void handle(String issue) {
-        if ("password_reset".equals(issue)) {
-            System.out.println("[FAQBot] Handled password_reset");
+        if (SUPPORTED_ISSUES.contains(issue)) {
+            System.out.println("[" + getClass().getSimpleName() + "] Handled: " + issue);
         } else if (next != null) {
-            System.out.println("[FAQBot] Cannot handle, passing to JuniorSupport");
+            System.out.println("[" + getClass().getSimpleName() + "] Cannot handle '" + issue + "', passing to next...");
             next.handle(issue);
         } else {
-            System.out.println("[FAQBot] Cannot handle and no next handler available");
+            System.out.println("[" + getClass().getSimpleName() + "] Cannot handle '" + issue + "' and no next handler.");
         }
     }
 }
